@@ -1,0 +1,961 @@
+{
+  "version": "prototype-0.1",
+  "guns": [
+    {
+      "id": "G_AR01",
+      "name": "街卫-01",
+      "type": "AR",
+      "typeName": "突击步枪",
+      "reference": "FN SCAR L MK2",
+      "mode": "AUTO",
+      "role": "中距离通用",
+      "source": "https://fnherstal.com/en/defence/portable-weapons/fn-scar-l-mk2/",
+      "slots": [
+        "BARREL",
+        "FOREGRIP",
+        "REARGRIP",
+        "STOCK",
+        "OPTIC"
+      ],
+      "base": {
+        "recoil_v_deg": 1.8,
+        "recoil_h_deg": 0.6,
+        "recoil_recover_dps": 8,
+        "return_cap_deg": 4,
+        "ads_ms": 260,
+        "ready_ms": 210,
+        "idle_sway_deg": 0.25,
+        "fire_sway_deg": 0.32,
+        "turn_dps": 150,
+        "ads_spread_deg": 0.35,
+        "hip_spread_deg": 2.4,
+        "spread_recover_dps": 2,
+        "damage": 28,
+        "falloff_start_m": 30,
+        "rpm": 650,
+        "reload_ms": 2200,
+        "capacity": 30,
+        "falloff_end_m": 65,
+        "min_damage_ratio": 0.55,
+        "pellets": 1,
+        "recoil_accum_per_shot": 0.06,
+        "recoil_accum_cap": 1.6,
+        "recoil_delay_ms": 180,
+        "spread_add_deg": 0.08,
+        "spread_add_cap_deg": 0.8,
+        "sway_hz": 0.8,
+        "manual_cycle_ms": 0
+      }
+    },
+    {
+      "id": "G_SMG01",
+      "name": "巷卫-01",
+      "type": "SMG",
+      "typeName": "冲锋枪",
+      "reference": "HK MP5",
+      "mode": "AUTO",
+      "role": "近距离快速响应",
+      "source": "https://www.heckler-und-koch.com/en/Products/Military%20and%20Law%20Enforcement/Submachine%20guns/MP5",
+      "slots": [
+        "BARREL",
+        "FOREGRIP",
+        "REARGRIP",
+        "STOCK",
+        "OPTIC"
+      ],
+      "base": {
+        "recoil_v_deg": 1.1,
+        "recoil_h_deg": 0.7,
+        "recoil_recover_dps": 10,
+        "return_cap_deg": 3,
+        "ads_ms": 180,
+        "ready_ms": 150,
+        "idle_sway_deg": 0.3,
+        "fire_sway_deg": 0.35,
+        "turn_dps": 190,
+        "ads_spread_deg": 0.6,
+        "hip_spread_deg": 2,
+        "spread_recover_dps": 2.5,
+        "damage": 19,
+        "falloff_start_m": 18,
+        "rpm": 780,
+        "reload_ms": 1900,
+        "capacity": 30,
+        "falloff_end_m": 40,
+        "min_damage_ratio": 0.4,
+        "pellets": 1,
+        "recoil_accum_per_shot": 0.08,
+        "recoil_accum_cap": 1.8,
+        "recoil_delay_ms": 160,
+        "spread_add_deg": 0.1,
+        "spread_add_cap_deg": 1.1,
+        "sway_hz": 1,
+        "manual_cycle_ms": 0
+      }
+    },
+    {
+      "id": "G_MG01",
+      "name": "守线-01",
+      "type": "MG",
+      "typeName": "机枪",
+      "reference": "FN MINIMI 5.56 MK3",
+      "mode": "AUTO",
+      "role": "持续射击",
+      "source": "https://fnherstal.com/en/defence/portable-weapons/fn-minimi-556-mk3/",
+      "slots": [
+        "BARREL",
+        "FOREGRIP",
+        "REARGRIP",
+        "STOCK",
+        "OPTIC"
+      ],
+      "base": {
+        "recoil_v_deg": 2.1,
+        "recoil_h_deg": 0.9,
+        "recoil_recover_dps": 6,
+        "return_cap_deg": 5,
+        "ads_ms": 420,
+        "ready_ms": 350,
+        "idle_sway_deg": 0.4,
+        "fire_sway_deg": 0.5,
+        "turn_dps": 90,
+        "ads_spread_deg": 0.55,
+        "hip_spread_deg": 3.5,
+        "spread_recover_dps": 1.5,
+        "damage": 30,
+        "falloff_start_m": 35,
+        "rpm": 700,
+        "reload_ms": 4800,
+        "capacity": 80,
+        "falloff_end_m": 80,
+        "min_damage_ratio": 0.6,
+        "pellets": 1,
+        "recoil_accum_per_shot": 0.05,
+        "recoil_accum_cap": 1.8,
+        "recoil_delay_ms": 220,
+        "spread_add_deg": 0.09,
+        "spread_add_cap_deg": 1.2,
+        "sway_hz": 0.7,
+        "manual_cycle_ms": 0
+      }
+    },
+    {
+      "id": "G_SG01",
+      "name": "门卫-01",
+      "type": "SG",
+      "typeName": "霰弹枪",
+      "reference": "Benelli M4 T-Pro",
+      "mode": "SEMI",
+      "role": "近距离多弹丸",
+      "source": "https://benelli.it/uploads/22a9ef64dff840bdfad69a8873244728.pdf",
+      "slots": [
+        "BARREL",
+        "FOREGRIP",
+        "STOCK",
+        "OPTIC"
+      ],
+      "base": {
+        "recoil_v_deg": 3.8,
+        "recoil_h_deg": 0.8,
+        "recoil_recover_dps": 9,
+        "return_cap_deg": 5,
+        "ads_ms": 300,
+        "ready_ms": 260,
+        "idle_sway_deg": 0.35,
+        "fire_sway_deg": 0.5,
+        "turn_dps": 140,
+        "ads_spread_deg": 2.4,
+        "hip_spread_deg": 4.5,
+        "spread_recover_dps": 3,
+        "damage": 10,
+        "falloff_start_m": 12,
+        "rpm": 180,
+        "reload_ms": 3200,
+        "capacity": 8,
+        "falloff_end_m": 28,
+        "min_damage_ratio": 0.25,
+        "pellets": 8,
+        "recoil_accum_per_shot": 0.1,
+        "recoil_accum_cap": 1.3,
+        "recoil_delay_ms": 250,
+        "spread_add_deg": 0.15,
+        "spread_add_cap_deg": 1.2,
+        "sway_hz": 0.8,
+        "manual_cycle_ms": 0
+      }
+    },
+    {
+      "id": "G_SR01",
+      "name": "远哨-01",
+      "type": "SR",
+      "typeName": "狙击枪",
+      "reference": "L115A3",
+      "mode": "MANUAL",
+      "role": "慢节奏单发高伤害",
+      "source": "https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/l115a3-long-range-sniper-rifle/",
+      "slots": [
+        "BARREL",
+        "FOREGRIP",
+        "REARGRIP",
+        "STOCK",
+        "OPTIC"
+      ],
+      "base": {
+        "recoil_v_deg": 5.2,
+        "recoil_h_deg": 1.1,
+        "recoil_recover_dps": 5,
+        "return_cap_deg": 6,
+        "ads_ms": 520,
+        "ready_ms": 440,
+        "idle_sway_deg": 0.18,
+        "fire_sway_deg": 0.45,
+        "turn_dps": 80,
+        "ads_spread_deg": 0.1,
+        "hip_spread_deg": 5,
+        "spread_recover_dps": 1,
+        "damage": 110,
+        "falloff_start_m": 80,
+        "rpm": 50,
+        "reload_ms": 3000,
+        "capacity": 5,
+        "falloff_end_m": 160,
+        "min_damage_ratio": 0.8,
+        "pellets": 1,
+        "recoil_accum_per_shot": 0.1,
+        "recoil_accum_cap": 1.4,
+        "recoil_delay_ms": 300,
+        "spread_add_deg": 0.05,
+        "spread_add_cap_deg": 0.5,
+        "sway_hz": 0.5,
+        "manual_cycle_ms": 1000
+      }
+    },
+    {
+      "id": "G_DMR01",
+      "name": "巡哨-01",
+      "type": "DMR",
+      "typeName": "射手步枪",
+      "reference": "L129A1",
+      "mode": "SEMI",
+      "role": "中远距离连续单发",
+      "source": "https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/l129a1-sharpshooter-rifle/",
+      "slots": [
+        "BARREL",
+        "FOREGRIP",
+        "REARGRIP",
+        "STOCK",
+        "OPTIC"
+      ],
+      "base": {
+        "recoil_v_deg": 3.2,
+        "recoil_h_deg": 0.8,
+        "recoil_recover_dps": 7,
+        "return_cap_deg": 5,
+        "ads_ms": 350,
+        "ready_ms": 290,
+        "idle_sway_deg": 0.22,
+        "fire_sway_deg": 0.38,
+        "turn_dps": 120,
+        "ads_spread_deg": 0.18,
+        "hip_spread_deg": 3.8,
+        "spread_recover_dps": 1.8,
+        "damage": 52,
+        "falloff_start_m": 55,
+        "rpm": 260,
+        "reload_ms": 2500,
+        "capacity": 20,
+        "falloff_end_m": 110,
+        "min_damage_ratio": 0.7,
+        "pellets": 1,
+        "recoil_accum_per_shot": 0.08,
+        "recoil_accum_cap": 1.5,
+        "recoil_delay_ms": 220,
+        "spread_add_deg": 0.08,
+        "spread_add_cap_deg": 0.8,
+        "sway_hz": 0.6,
+        "manual_cycle_ms": 0
+      }
+    }
+  ],
+  "channels": [
+    {
+      "id": "RC_V",
+      "name": "垂直后坐控制",
+      "group": "RECOIL",
+      "stat": "recoil_v_deg",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "度/发",
+      "min": 0.01,
+      "max": 20,
+      "round": "NONE"
+    },
+    {
+      "id": "RC_H",
+      "name": "水平后坐控制",
+      "group": "RECOIL",
+      "stat": "recoil_h_deg",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "度/发",
+      "min": 0,
+      "max": 20,
+      "round": "NONE"
+    },
+    {
+      "id": "RC_REC",
+      "name": "后坐恢复速度",
+      "group": "RECOIL",
+      "stat": "recoil_recover_dps",
+      "direction": 1,
+      "curve": "CONTROL",
+      "unit": "度/秒",
+      "min": 0.01,
+      "max": 200,
+      "round": "NONE"
+    },
+    {
+      "id": "RC_CAP",
+      "name": "后坐恢复范围",
+      "group": "RECOIL",
+      "stat": "return_cap_deg",
+      "direction": 1,
+      "curve": "CONTROL",
+      "unit": "度",
+      "min": 0,
+      "max": 60,
+      "round": "NONE"
+    },
+    {
+      "id": "HD_ADS",
+      "name": "开镜效率",
+      "group": "HANDLING",
+      "stat": "ads_ms",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "毫秒",
+      "min": 50,
+      "max": 2000,
+      "round": "NONE"
+    },
+    {
+      "id": "HD_READY",
+      "name": "举枪效率",
+      "group": "HANDLING",
+      "stat": "ready_ms",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "毫秒",
+      "min": 50,
+      "max": 2000,
+      "round": "NONE"
+    },
+    {
+      "id": "HD_IDLE",
+      "name": "静态据枪稳定",
+      "group": "HANDLING",
+      "stat": "idle_sway_deg",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "度",
+      "min": 0,
+      "max": 10,
+      "round": "NONE"
+    },
+    {
+      "id": "HD_FIRE",
+      "name": "开火稳定性据枪",
+      "group": "HANDLING",
+      "stat": "fire_sway_deg",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "度",
+      "min": 0,
+      "max": 10,
+      "round": "NONE"
+    },
+    {
+      "id": "HD_TURN",
+      "name": "目标转移效率",
+      "group": "HANDLING",
+      "stat": "turn_dps",
+      "direction": 1,
+      "curve": "CONTROL",
+      "unit": "度/秒",
+      "min": 10,
+      "max": 720,
+      "round": "NONE"
+    },
+    {
+      "id": "SP_ADS",
+      "name": "开镜射击扩散减免",
+      "group": "SPREAD",
+      "stat": "ads_spread_deg",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "半角度",
+      "min": 0.01,
+      "max": 20,
+      "round": "NONE"
+    },
+    {
+      "id": "SP_HIP",
+      "name": "腰射扩散减免",
+      "group": "SPREAD",
+      "stat": "hip_spread_deg",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "半角度",
+      "min": 0.01,
+      "max": 30,
+      "round": "NONE"
+    },
+    {
+      "id": "SP_REC",
+      "name": "扩散恢复效率",
+      "group": "SPREAD",
+      "stat": "spread_recover_dps",
+      "direction": 1,
+      "curve": "CONTROL",
+      "unit": "度/秒",
+      "min": 0.01,
+      "max": 100,
+      "round": "NONE"
+    },
+    {
+      "id": "DMG",
+      "name": "伤害收益",
+      "group": "DAMAGE",
+      "stat": "damage",
+      "direction": 1,
+      "curve": "OUTPUT",
+      "unit": "点/弹丸",
+      "min": 0.1,
+      "max": 500,
+      "round": "NONE"
+    },
+    {
+      "id": "RANGE",
+      "name": "射程收益",
+      "group": "DAMAGE",
+      "stat": "falloff_start_m",
+      "direction": 1,
+      "curve": "OUTPUT",
+      "unit": "米",
+      "min": 1,
+      "max": 500,
+      "round": "NONE"
+    },
+    {
+      "id": "RPM",
+      "name": "射速收益",
+      "group": "RATE",
+      "stat": "rpm",
+      "direction": 1,
+      "curve": "OUTPUT",
+      "unit": "发/分钟",
+      "min": 1,
+      "max": 2000,
+      "round": "NONE"
+    },
+    {
+      "id": "RELOAD",
+      "name": "换弹效率",
+      "group": "SUPPLY",
+      "stat": "reload_ms",
+      "direction": -1,
+      "curve": "CONTROL",
+      "unit": "毫秒",
+      "min": 100,
+      "max": 15000,
+      "round": "NONE"
+    },
+    {
+      "id": "CAP",
+      "name": "容量收益",
+      "group": "SUPPLY",
+      "stat": "capacity",
+      "direction": 1,
+      "curve": "OUTPUT",
+      "unit": "发",
+      "min": 1,
+      "max": 300,
+      "round": "FLOOR"
+    }
+  ],
+  "attachments": [
+    {
+      "id": "A01",
+      "name": "战斗垂直握把",
+      "slot": "FOREGRIP",
+      "scope": "ALL",
+      "targets": [],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "RC_V": 3,
+        "RC_H": 2,
+        "HD_FIRE": 2,
+        "SP_ADS": 2
+      }
+    },
+    {
+      "id": "A02",
+      "name": "轻量前握把",
+      "slot": "FOREGRIP",
+      "scope": "ALL",
+      "targets": [],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "HD_ADS": 4,
+        "HD_TURN": 3,
+        "RC_V": -2
+      }
+    },
+    {
+      "id": "A03",
+      "name": "快拔后握把",
+      "slot": "REARGRIP",
+      "scope": "TYPE",
+      "targets": [
+        "AR",
+        "SMG"
+      ],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "HD_ADS": 4,
+        "HD_READY": 3,
+        "HD_IDLE": -2
+      }
+    },
+    {
+      "id": "A04",
+      "name": "稳定枪托",
+      "slot": "STOCK",
+      "scope": "ALL",
+      "targets": [],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "HD_FIRE": 3,
+        "HD_IDLE": 4,
+        "HD_ADS": -3,
+        "HD_TURN": -2
+      }
+    },
+    {
+      "id": "A05",
+      "name": "轻量枪托",
+      "slot": "STOCK",
+      "scope": "ALL",
+      "targets": [],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "HD_ADS": 3,
+        "HD_TURN": 3,
+        "RC_V": -2,
+        "HD_FIRE": -2
+      }
+    },
+    {
+      "id": "A06",
+      "name": "长射程枪管",
+      "slot": "BARREL",
+      "scope": "TYPE",
+      "targets": [
+        "AR",
+        "DMR"
+      ],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "DMG": 2,
+        "RANGE": 6,
+        "HD_ADS": -4,
+        "HD_TURN": -2
+      }
+    },
+    {
+      "id": "A07",
+      "name": "稳定枪管",
+      "slot": "BARREL",
+      "scope": "TYPE",
+      "targets": [
+        "AR",
+        "MG"
+      ],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "RC_V": 6,
+        "RC_H": 4,
+        "HD_ADS": -3
+      }
+    },
+    {
+      "id": "A08",
+      "name": "简易瞄准镜",
+      "slot": "OPTIC",
+      "scope": "ALL",
+      "targets": [],
+      "mode": null,
+      "zoom": 1,
+      "points": {
+        "HD_IDLE": 2,
+        "HD_ADS": -1
+      }
+    },
+    {
+      "id": "A09",
+      "name": "精密瞄准镜",
+      "slot": "OPTIC",
+      "scope": "TYPE",
+      "targets": [
+        "SR",
+        "DMR"
+      ],
+      "mode": null,
+      "zoom": 4,
+      "points": {
+        "HD_IDLE": 6,
+        "HD_ADS": -3,
+        "HD_TURN": -3
+      }
+    },
+    {
+      "id": "A10",
+      "name": "自动射击模组",
+      "slot": "REARGRIP",
+      "scope": "GUN",
+      "targets": [
+        "G_DMR01"
+      ],
+      "mode": "AUTO",
+      "zoom": null,
+      "points": {
+        "RC_V": -6,
+        "HD_FIRE": -4,
+        "SP_ADS": -2
+      }
+    },
+    {
+      "id": "A11",
+      "name": "点射模组",
+      "slot": "REARGRIP",
+      "scope": "GUN",
+      "targets": [
+        "G_DMR01"
+      ],
+      "mode": "BURST",
+      "zoom": null,
+      "points": {
+        "RC_V": -2,
+        "HD_FIRE": -1
+      }
+    },
+    {
+      "id": "A12",
+      "name": "半自动模组",
+      "slot": "REARGRIP",
+      "scope": "GUN",
+      "targets": [
+        "G_SR01"
+      ],
+      "mode": "SEMI",
+      "zoom": null,
+      "points": {
+        "RC_V": -4,
+        "HD_FIRE": -2
+      }
+    },
+    {
+      "id": "A13",
+      "name": "控制后握把",
+      "slot": "REARGRIP",
+      "scope": "TYPE",
+      "targets": [
+        "AR",
+        "MG"
+      ],
+      "mode": null,
+      "zoom": null,
+      "points": {
+        "RC_V": 4,
+        "RC_H": 4,
+        "HD_ADS": -3
+      }
+    }
+  ],
+  "typeK": {
+    "AR|RC_V": 1,
+    "AR|RC_H": 1,
+    "AR|RC_REC": 1,
+    "AR|RC_CAP": 1,
+    "AR|HD_ADS": 1,
+    "AR|HD_READY": 1,
+    "AR|HD_IDLE": 1,
+    "AR|HD_FIRE": 1,
+    "AR|HD_TURN": 1,
+    "AR|SP_ADS": 1,
+    "AR|SP_HIP": 1,
+    "AR|SP_REC": 1,
+    "AR|DMG": 1,
+    "AR|RANGE": 1,
+    "AR|RPM": 1,
+    "AR|RELOAD": 1,
+    "AR|CAP": 1,
+    "SMG|RC_V": 0.8,
+    "SMG|RC_H": 0.9,
+    "SMG|RC_REC": 1,
+    "SMG|RC_CAP": 1,
+    "SMG|HD_ADS": 1.2,
+    "SMG|HD_READY": 1.2,
+    "SMG|HD_IDLE": 1,
+    "SMG|HD_FIRE": 1.2,
+    "SMG|HD_TURN": 1.2,
+    "SMG|SP_ADS": 1.2,
+    "SMG|SP_HIP": 1.1,
+    "SMG|SP_REC": 1,
+    "SMG|DMG": 0.9,
+    "SMG|RANGE": 0.8,
+    "SMG|RPM": 1,
+    "SMG|RELOAD": 1,
+    "SMG|CAP": 1,
+    "MG|RC_V": 1.2,
+    "MG|RC_H": 1.1,
+    "MG|RC_REC": 1,
+    "MG|RC_CAP": 1,
+    "MG|HD_ADS": 0.7,
+    "MG|HD_READY": 0.7,
+    "MG|HD_IDLE": 0.9,
+    "MG|HD_FIRE": 0.9,
+    "MG|HD_TURN": 0.7,
+    "MG|SP_ADS": 0.85,
+    "MG|SP_HIP": 0.8,
+    "MG|SP_REC": 1,
+    "MG|DMG": 1,
+    "MG|RANGE": 1,
+    "MG|RPM": 0.8,
+    "MG|RELOAD": 0.8,
+    "MG|CAP": 1,
+    "SG|RC_V": 0.9,
+    "SG|RC_H": 1,
+    "SG|RC_REC": 1,
+    "SG|RC_CAP": 1,
+    "SG|HD_ADS": 0.9,
+    "SG|HD_READY": 0.9,
+    "SG|HD_IDLE": 0.8,
+    "SG|HD_FIRE": 0.8,
+    "SG|HD_TURN": 1,
+    "SG|SP_ADS": 1.3,
+    "SG|SP_HIP": 1.2,
+    "SG|SP_REC": 1,
+    "SG|DMG": 1.1,
+    "SG|RANGE": 0.7,
+    "SG|RPM": 0.9,
+    "SG|RELOAD": 1,
+    "SG|CAP": 1,
+    "SR|RC_V": 0.7,
+    "SR|RC_H": 0.6,
+    "SR|RC_REC": 1,
+    "SR|RC_CAP": 1,
+    "SR|HD_ADS": 0.7,
+    "SR|HD_READY": 0.7,
+    "SR|HD_IDLE": 1.2,
+    "SR|HD_FIRE": 1.1,
+    "SR|HD_TURN": 0.7,
+    "SR|SP_ADS": 0.5,
+    "SR|SP_HIP": 0.6,
+    "SR|SP_REC": 1,
+    "SR|DMG": 1.1,
+    "SR|RANGE": 1.2,
+    "SR|RPM": 0.8,
+    "SR|RELOAD": 0.8,
+    "SR|CAP": 1,
+    "DMR|RC_V": 0.9,
+    "DMR|RC_H": 0.85,
+    "DMR|RC_REC": 1,
+    "DMR|RC_CAP": 1,
+    "DMR|HD_ADS": 0.9,
+    "DMR|HD_READY": 0.9,
+    "DMR|HD_IDLE": 1.1,
+    "DMR|HD_FIRE": 1,
+    "DMR|HD_TURN": 1,
+    "DMR|SP_ADS": 0.8,
+    "DMR|SP_HIP": 0.8,
+    "DMR|SP_REC": 1,
+    "DMR|DMG": 1.05,
+    "DMR|RANGE": 1.1,
+    "DMR|RPM": 0.9,
+    "DMR|RELOAD": 0.9,
+    "DMR|CAP": 1
+  },
+  "gunK": {
+    "G_DMR01|RC_V": 1.1,
+    "G_DMR01|HD_ADS": 0.85,
+    "G_SR01|HD_FIRE": 1.2,
+    "G_AR01|HD_ADS": 1.1
+  },
+  "curves": {
+    "CONTROL": {
+      "threshold": 10,
+      "gain": 0.2,
+      "cap": 0.6,
+      "negativeSlope": 0.02,
+      "negativeCap": 0.5
+    },
+    "OUTPUT": {
+      "threshold": 10,
+      "gain": 0.1,
+      "cap": 0.3,
+      "negativeSlope": 0.015,
+      "negativeCap": 0.3
+    }
+  },
+  "modes": {
+    "AUTO": {
+      "name": "持续射击",
+      "trigger": "HOLD",
+      "count": 1,
+      "gap": 0,
+      "manual": false
+    },
+    "SEMI": {
+      "name": "每次触发一发",
+      "trigger": "EDGE",
+      "count": 1,
+      "gap": 0,
+      "manual": false
+    },
+    "BURST": {
+      "name": "固定发数点射",
+      "trigger": "EDGE_BURST",
+      "count": 3,
+      "gap": 300,
+      "manual": false
+    },
+    "MANUAL": {
+      "name": "逐发手动循环",
+      "trigger": "EDGE",
+      "count": 1,
+      "gap": 0,
+      "manual": true
+    }
+  },
+  "presets": [
+    {
+      "id": "B00",
+      "gun": "G_AR01",
+      "slots": {},
+      "name": "空槽基线"
+    },
+    {
+      "id": "B01",
+      "gun": "G_AR01",
+      "slots": {
+        "FOREGRIP": "A01"
+      },
+      "name": "同一握把跨枪比较"
+    },
+    {
+      "id": "B02",
+      "gun": "G_SMG01",
+      "slots": {
+        "FOREGRIP": "A01"
+      },
+      "name": "同一握把跨枪比较"
+    },
+    {
+      "id": "B03",
+      "gun": "G_MG01",
+      "slots": {
+        "FOREGRIP": "A01"
+      },
+      "name": "同一握把跨枪比较"
+    },
+    {
+      "id": "B04",
+      "gun": "G_SG01",
+      "slots": {
+        "FOREGRIP": "A01"
+      },
+      "name": "同一握把跨枪比较"
+    },
+    {
+      "id": "B05",
+      "gun": "G_SR01",
+      "slots": {
+        "FOREGRIP": "A01"
+      },
+      "name": "同一握把跨枪比较"
+    },
+    {
+      "id": "B06",
+      "gun": "G_DMR01",
+      "slots": {
+        "FOREGRIP": "A01"
+      },
+      "name": "同一握把跨枪比较"
+    },
+    {
+      "id": "B07",
+      "gun": "G_AR01",
+      "slots": {
+        "FOREGRIP": "A02",
+        "REARGRIP": "A03",
+        "STOCK": "A05"
+      },
+      "name": "快速响应：控制代价"
+    },
+    {
+      "id": "B08",
+      "gun": "G_DMR01",
+      "slots": {
+        "BARREL": "A06",
+        "FOREGRIP": "A01",
+        "STOCK": "A04",
+        "OPTIC": "A09"
+      },
+      "name": "精密配装：开镜代价"
+    },
+    {
+      "id": "B09",
+      "gun": "G_DMR01",
+      "slots": {
+        "REARGRIP": "A10"
+      },
+      "name": "自动模式与控制代价"
+    },
+    {
+      "id": "B10",
+      "gun": "G_DMR01",
+      "slots": {
+        "REARGRIP": "A11"
+      },
+      "name": "点射模式"
+    },
+    {
+      "id": "B11",
+      "gun": "G_SR01",
+      "slots": {
+        "REARGRIP": "A12"
+      },
+      "name": "半自动模式"
+    },
+    {
+      "id": "B12",
+      "gun": "G_AR01",
+      "slots": {
+        "BARREL": "A07",
+        "FOREGRIP": "A01",
+        "REARGRIP": "A13",
+        "STOCK": "A04",
+        "OPTIC": "A08"
+      },
+      "name": "高控制：检验递减段"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "package": "三角洲赛季自选任务作品包",
+  "version": "v1.1.0",
+  "designVersion": "v1.2.0",
+  "demoVersion": "v0.9.0",
+  "published": "2026-10-31",
+  "files": [
+    {
+      "path": "00_开始阅读.html",
+      "sha256": "e0d3a3028c986a78529065db67a9b4a36311e02f25dc03a175870bc358374835"
+    },
+    {
+      "path": "01_正式玩法设计案.pdf",
+      "sha256": "4f15d3e1474c6866168294c518ff43b470863dc528101efe90658ba37194b337"
+    },
+    {
+      "path": "02_可交互Demo.html",
+      "sha256": "d298870c575ad82889b7892262560146568470a1d294faf8d7d7cf5c0c839f5d"
+    },
+    {
+      "path": "03_事实与来源.html",
+      "sha256": "59c249ebef7221c00ef8279ccc8520ba87dca3b773a5ceaa71b86fd1778dd40a"
+    },
+    {
+      "path": "04_任务包配置.html",
+      "sha256": "ef3a48f0b54208641d56d6e84e8c0ea0b5fa837a7a4a749752b6ebc4fb9b10aa"
+    },
+    {
+      "path": "05_任务包默认配置.js",
+      "sha256": "f181cae3349c4d6f613e92659c7658965edecb0d11e20c4e3386eb7bbae46d17"
+    },
+    {
+      "path": "assets/01_阶段一任务页与自选入口.png",
+      "sha256": "9021c358280fb81f66ea838cfe731e5e4628933102f3885abb193bc1408e37b7"
+    },
+    {
+      "path": "assets/02_三类任务包选择.png",
+      "sha256": "939223bc8627065af573add7fb17a2701ce05f226037432e49b45a3a783cbd0b"
+    },
+    {
+      "path": "assets/03_任务包完整目标预览.png",
+      "sha256": "9ab67f8f4267693a3b8521a3322fdec918512d4f282b2aadb605a590761d6d06"
+    },
+    {
+      "path": "assets/04_详细自选悬浮流程.png",
+      "sha256": "c215bfbd4b9c909eed51422129ffa368a0c5250d2d66f9cb1dd1f4ff2384a4f1"
+    },
+    {
+      "path": "assets/05_策划模式任务包配置.png",
+      "sha256": "931746529ba1e8c5890de50cb4985f8548c7b1c7f4cefb72d3c92eb0e6fbca49"
+    },
+    {
+      "path": "index.html",
+      "sha256": "aeec165fa97a12641a9d46eb7712add7f89678e9a4fc1fca103500a0ec988ecf"
+    },
+    {
+      "path": "三角洲赛季自选任务_公开作品包_v1.1.0.zip",
+      "sha256": "cf53cdbfa4fc81b8928ec0f8612a28515154b0d8d230c8f41300543cbfd50201"
+    }
+  ],
+  "publicationNotes": [
+    "去除本地工程绝对路径",
+    "修正公开配置说明",
+    "补充主页导航与离线下载入口",
+    "不含内部核验资料"
+  ]
+}

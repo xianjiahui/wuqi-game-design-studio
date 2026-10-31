@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="document-source" content="自选任务玩法设计案_正式版_v1.2.0_待验收.md"><meta name="document-sha256" content="cca1252d3ec34dfded3a7f1a384f4fd94c6bc8bf137a18187f73e1c675862ddb">
+<title>三角洲行动：赛季自选任务玩法设计案 · 阅读版</title><style>
+:root{color-scheme:light;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#202d37;background:#eef2f5}
+*{box-sizing:border-box}body{margin:0;padding:28px 18px;font-size:15px;line-height:1.75}
+article{max-width:1000px;margin:auto;padding:38px 44px 44px;background:white;border:1px solid #dce3e9;border-radius:12px}
+h1{font-size:28px;line-height:1.4;color:#152d42;margin:0 0 8px}h1+p{font-size:13px;color:#647581;margin-top:0}
+h2{font-size:21px;color:#153d5b;margin:32px 0 14px;padding-bottom:8px;border-bottom:2px solid #e5edf3}
+h3{font-size:17px;color:#25485f;margin:22px 0 9px}p{margin:10px 0}strong{font-weight:700}a{color:#175d8e;text-underline-offset:3px}
+.quick{padding:16px 20px;border-left:4px solid #32749c;background:#f0f6fa;margin:22px 0}
+.table-wrap{max-width:100%;overflow-x:auto;margin:14px 0 18px}table{border-collapse:collapse;width:100%;min-width:570px;font-size:14px;line-height:1.65}
+th,td{border:1px solid #dbe4eb;text-align:left;vertical-align:top;padding:9px 12px}th{background:#edf3f7;color:#214660}tbody tr:nth-child(even){background:#fafcfd}
+table:not(.gallery) th:first-child{width:14%;min-width:100px}
+table.gallery{table-layout:fixed;min-width:0}.gallery th,.gallery td{text-align:center}.gallery td{padding:12px}.gallery a{display:inline-block}
+.gallery img{display:block;width:180px;max-width:100%;height:auto;max-height:150px;object-fit:contain;border:1px solid #d1dce5;border-radius:4px;background:#fff;cursor:zoom-in}
+dialog{border:0;border-radius:10px;padding:0;width:min(1180px,96vw);max-width:96vw;max-height:92vh;background:#fff;box-shadow:0 16px 70px #0008}
+dialog::backdrop{background:#10202de0}.zoom-bar{display:flex;align-items:center;gap:16px;padding:10px 16px;background:#f1f5f8;border-bottom:1px solid #dbe4eb}
+.zoom-bar span{flex:1;font-size:14px}.zoom-bar a,.zoom-bar button{font:inherit;font-size:14px}.zoom-bar button{border:1px solid #a8bac8;padding:4px 14px;border-radius:5px;background:white;color:#25485f;cursor:pointer}
+.zoom-scroll{overflow:auto;max-height:calc(92vh - 57px);padding:12px;background:#e8edf1}.zoom-scroll img{display:block;width:100%;height:auto;margin:0 auto;max-height:none}
+@media(max-width:600px){body{padding:8px;font-size:15px}article{padding:22px 16px;border-radius:8px}h1{font-size:23px}h2{font-size:20px}.quick{padding:12px 14px}
+table.gallery,table.gallery tbody{display:block}.gallery thead{display:none}.gallery tr{display:grid;grid-template-columns:1fr}.gallery td{display:block;margin-bottom:8px}.gallery td::before{content:attr(data-label);display:block;font-weight:700;color:#214660;margin-bottom:6px}.gallery img{width:220px;max-height:155px}.zoom-bar{gap:8px;padding:8px}.zoom-bar span{font-size:12px}}
+@media print{body{padding:0;background:white}article{max-width:none;border:0;padding:0}h2,h3{break-after:avoid}.table-wrap{overflow:visible}table{min-width:0}dialog{display:none}}
+
+html{scroll-behavior:smooth}body{padding:0 18px 52px;background:#edf2ef;color:#21312a;font-size:16px;line-height:1.86}
+article{max-width:1060px;margin:auto;padding:44px 62px 56px;border:0;border-radius:0 0 12px 12px}
+h1{font-size:30px}h2{color:#17634f;border-color:#d6e9dd;margin-top:40px}h3{color:#255244}a{color:#176b53}
+.hero{max-width:1060px;margin:24px auto 0;padding:48px 62px 42px;background:#102e27;color:#f4f7f0;border-radius:12px 12px 0 0}
+.hero-kicker{font-size:12px;letter-spacing:3px;color:#a6d4bc}.hero-title{font-size:48px;line-height:1.27;font-weight:750;margin:22px 0 14px}
+.hero p{color:#c9ddd0;margin:0}.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:13px 22px;margin:30px 0 23px}
+.hero-actions a{color:#d8eee0;text-decoration:none;font-size:14px}.hero-actions .hero-primary{display:inline-block;padding:12px 24px;border-radius:5px;background:#d4f68a;color:#173c2a;font-weight:750}
+.hero-meta{font-size:12px;color:#b7d0c0;letter-spacing:.02em}.hero-hint{font-size:13px;color:#c9ddd0;margin-top:8px!important}
+.contents{max-width:1060px;margin:auto;display:flex;justify-content:center;flex-wrap:wrap;gap:12px 24px;padding:13px 24px;background:#dfeae2}
+.contents a{color:#2c5644;text-decoration:none;font-size:14px;font-weight:650}.quick{background:#f1f6ed;border-color:#81aa63}
+th{background:#e9f2ec;color:#284e3d}.gallery img{width:100%;max-height:185px}.gallery td{padding:6px}
+@media(max-width:600px){body{padding:0 8px 28px}article{padding:25px 18px}.hero{margin-top:8px;padding:28px 22px}.hero-title{font-size:34px}.hero-actions{gap:13px}.contents{gap:9px 14px;padding:12px}.gallery img{max-height:220px}}
+@media print{@page{size:A4;margin:16mm 15mm 18mm}html{background:white!important}body{padding:0;background:white!important;font-size:10pt;line-height:1.62}article{max-width:none;border:0;padding:0}.hero{margin:0;padding:20mm 12mm;border-radius:0;background:#102e27!important;print-color-adjust:exact;break-after:page;min-height:220mm}.hero-title{font-size:35pt;margin-top:42mm}.hero-actions,.contents{display:none}.hero-meta{margin-top:18mm}.hero-hint:after{content:' 同包交互入口：02_可交互Demo.html。'}h1{font-size:21pt}h2{font-size:16pt;break-after:avoid}h3{font-size:12pt;break-after:avoid}.table-wrap{overflow:visible}table{min-width:0;font-size:9pt}tr{break-inside:avoid}th,td{padding:6px 8px}.gallery img{max-height:115px}p{orphans:3;widows:3}}
+</style></head>
+<body><div style="padding:14px 24px;background:#101e27;font-size:13px"><a href="../../index.html#demo" style="color:#c3e5dc;text-decoration:none">← 返回游戏设计研修室</a></div><header class="hero"><div class="hero-kicker">GAME SYSTEM DESIGN / 吴琦</div><div class="hero-title">让赛季进度，<br>拥有更多可选路线。</div><p>三角洲行动 · 赛季自选任务设计</p><div class="hero-actions"><a class="hero-primary" href="02_可交互Demo.html">立即体验 Demo ↗</a><a href="#section1">阅读设计案 ↓</a><a href="01_正式玩法设计案.pdf">PDF 阅读版</a><a href="03_事实与来源.html">研究依据</a><a href="三角洲赛季自选任务_公开作品包_v1.1.0.zip" download>下载离线作品包</a></div><div class="hero-meta">作品包 v1.1.0 · 正文 v1.2.0 · Demo v0.9.0 · 2026.10.30</div><p class="hero-hint">基于《三角洲行动》的个人系统设计方案与交互原型，非官方版本。本包可离线阅读与体验；从阶段一开始选择任务包，也可进入详细自选。</p></header><nav class="contents" aria-label="设计案目录"><a href="#section1">背景</a><a href="#section2">目的</a><a href="#section3">概述</a><a href="#section4">模型分析</a><a href="#section5">前端需求</a><a href="#section6">后端需求</a></nav><article><h1>三角洲行动：赛季自选任务玩法设计案</h1>
+<p>正文 v1.2.0 · 2026-10-30</p>
+<p><strong><a href="02_可交互Demo.html">立即体验交互 Demo</a>。</strong></p>
+<p class="quick"><strong>方案速读。</strong> 在 S11 行动计划前三阶段增加两条自选入口：三类固定任务包让玩家直接选择交战、扫荡或搜索方向；详细自选让玩家指定星数、行为偏好与地图。两者共用接取、期限和整线结星规则，只替代支线星数。策划以同一成本框架校验路线，减少不适配任务与集中卡点的重复投入，同时保留 3×3 安全箱的赛季长线目标。</p>
+<section id="section1">
+<h2>一、背景</h2>
+<p>赛季任务把 3×3 安全箱设为长线目标，用阶段门槛和逐线奖励牵引玩家持续推进。S11 已减轻不少单项目标，但玩家仍会被预设支线组合和重复的任务目的地卡住。笔者结合 S6—S11 超过 1900 小时的游玩、S11 任务拆解及 B 站任务讨论，提出自选任务方案。</p>
+<h3>1.1 赛季任务规划玩家动线</h3>
+<p>行动计划以主线、支线星数和阶段门槛组织进程；完成任务线可获得 1 天 3×3 安全箱体验卡，最终奖励则给出明确的赛季目标。安全箱缓冲撤离失败的损失，过程体验卡让玩家在追逐长期目标时也能获得保障。</p>
+<p>任务内容同时规定玩家去哪里、带什么装备、获取或提交什么物品、怎样交战和撤离。它是策划规划赛季动线的工具，也能引导武器使用、局内行为与物品供需。自选任务需要在这套调控结构内增加路线弹性，让不同能力和偏好的玩家都能持续推进。</p>
+<h3>1.2 减负之后，预设组合仍限制选择</h3>
+<p>S11 将更多主线目标转向调查、收集和跑图，减少交战要求，并调整支线开放与收集者提交要求。但星数仍与固定支线内容绑定：阶段一四条支线为 3／3／2／2 星，晋级需要 7 星。玩家若避开两条 3 星线，只做其余支线便无法达标。</p>
+<p>于是，单个目标虽然变轻，玩家仍可能为了星数反复完成不擅长的战斗、陌生地图或与自身游玩方式不合的要求。任务失败还会带来战备损失、绕行与时间投入；减负没有完全转化为可选择的推进路线。</p>
+<h3>1.3 目的地聚集放大了低门槛任务的压力</h3>
+<p>S11 前三阶段的任务反复指向零号大坝营地和巴克什集市等片区，跨阶段主线与支线在这些区域交汇。笔者的游玩体验是：调查、取放等本来不要求交战的目标，也会因多人争夺同一片区而变成高压卡点；失败后还须再次前往。</p>
+<p>固定任务包和详细自选都让玩家以其他支线内容补足星数，减少对不适配目的地的反复依赖，并给后续点位投放保留调控空间。舆情部分以 Key725 的赛季任务视频评论为主要参照；任务地点、版本调整和评论样本的逐项来源另见<a href="03_事实与来源.html#background">背景证据索引</a>。</p>
+</section>
+<section id="section2">
+<h2>二、目的</h2>
+<div class="table-wrap"><table><thead><tr><th>目的</th><th>设计落点</th></tr></thead><tbody><tr><td>打开推进路线</td><td>自选星数替代部分预设支线，保留主线和阶段门槛</td></tr><tr><td>降低选择负担</td><td>三类固定任务包直接提供完整任务线；有精确偏好的玩家进入详细自选</td></tr><tr><td>承接差异化需求</td><td>将偏好落实为任务内容，扩大可承担路线与地图选择</td></tr><tr><td>保持内容可控</td><td>任务包独立预置，详细自选由模板、权重、目标量和组合规则组织挑战</td></tr><tr><td>建立调控闭环</td><td>生成、评价、真实数据与体验验证共同支持策划迭代</td></tr><tr><td>降低集中卡点</td><td>提供替代目的地的补星路线，并让策划通过点位投放继续分散目标</td></tr><tr><td>改善赛季投入</td><td>从整个赛季比较对局、时间、赚损和奖励覆盖，关注继续开局意愿</td></tr></tbody></table></div>
+</section>
+<section id="section3">
+<h2>三、概述</h2>
+<p>玩家在行动计划阶段一至三的任务页，从主线任务卡下方、预设支线列表上方的独立“自选任务”入口打开悬浮面板。第一层提供该阶段固定的三种任务包；玩家查看完整任务线后确认，即新建并接取这条自选任务线。另一入口“详细自选”进入现有构筑流程：选择星数、1—3项行为偏好和1—2张地图，由系统生成符合选择的完整任务线。</p>
+<p><strong>任务包：进入自选 → 选主题包 → 预览完整任务线 → 确认接取。</strong>  <strong>详细自选：进入自选 → 选星数、行为与地图 → 预览完整任务线 → 确认接取。</strong> 两条入口随后共用逐节点推进、到期、重构和整线一次结星。自选星数仅替代前三阶段部分预设支线星数；主线、阶段四与收集者、命运契约等独立目标保留。</p>
+<div class="table-wrap"><table><thead><tr><th>阶段</th><th>交战与行动：高压</th><th>扫荡与撤离：中压</th><th>搜索与带出：低压</th></tr></thead><tbody><tr><td>一</td><td>3 星</td><td>3 星</td><td>2 星</td></tr><tr><td>二</td><td>4 星</td><td>3 星</td><td>2 星</td></tr><tr><td>三</td><td>5 星</td><td>4 星</td><td>3 星</td></tr></tbody></table></div>
+<p>每阶段每类仅有一个固定任务包，共九条预置任务线；阶段一、二每包 5 节点，阶段三每包 6 节点。“交战与行动”将本人击败干员与局内行动交替编排，目标可在<strong>巴克什或航天基地任一张</strong>地图完成；“扫荡与撤离”组合队伍可共享的 NPC 击败与本人成功撤离；“搜索与带出”组合本人容器搜索与本人携物带出。中、低压包的目标可在五张合法地图（零号大坝、长弓溪谷、航天基地、巴克什、AZ3）中<strong>任一张</strong>完成，不含潮汐监狱。包内的允许地图是可执行范围，不要求一条包线覆盖所有允许地图；玩家在任务包入口不另选地图。详细自选若选择两张地图，仍须在整线目标中覆盖两张，两种地图语义不混用。阶段一现有自选星档只有 2、3 两档，因此高压与中压包均为 3 星；压力分层取决于预置目标及条件，星数只是阶段进度贡献，不单独等同真实难度。包内节点数量与目标数量为 Demo 策划演示参数，尚未由真实完成数据校准。</p>
+<p>目前已基于S11真实任务底座，完成自选任务系统接入的交互原型与量化评价体系，可切换玩家体验与策划调控视角：</p>
+<div class="table-wrap"><table><thead><tr><th>视角</th><th>可以体验或操作什么</th></tr></thead><tbody><tr><td>玩家</td><td>从零推进真实任务，选择任务包或详细构筑，查看完整要求、逐节点完成并解锁后续阶段</td></tr><tr><td>策划</td><td>在策划模式按阶段编辑九包的星数、各节点目标类型与数量，查看草稿目标量 WU 提示；详细自选可开关地图／行为并调整平级／递进倾向；切换阶段及路线补足缺口，查看完整／剩余评价，推进模拟时钟并观察到期反馈</td></tr><tr><td>参数配置</td><td>固定包由独立配置源提供初值，策划草稿经合法性校验后应用；详细自选的模板、目标类型、内容权重、强度系数和组合约束由四组配置表调节；任一实际配置变更应用时重置原型玩家进度</td></tr></tbody></table></div>
+<p>原型中两条入口均免费，任务线建立后 3 个模拟日到期。阶段一详细自选2／3星、门槛7星；阶段二2／3／4星、门槛10星；阶段三3／4／5星、门槛14星，各阶段均须完成主线。阶段四顺序解锁后只读，独立目标保留自身时序，阶段三备用线在原型进入时全接。</p>
+<p>本作品包内含可离线运行的交互 Demo，可体验阶段一至三的任务包与详细自选。</p>
+</section>
+<section id="section4">
+<h2>四、模型分析</h2>
+<h3>4.1 两条内容入口共用同一评价闭环</h3>
+<p><strong>固定任务包或详细偏好与赛季状态 → 完整任务线 → 成本评价 → 接取推进 → 数据与体验回流 → 策划调控。</strong></p>
+<p>固定任务包由策划按阶段预置完整目标、地图、数量和星数，玩家确认时直接实例化任务线，不经过详细自选的行为／地图候选生成。详细自选仍从星数、行为与地图输入生成目标：星数确定进度贡献，行为确定主题，地图确定投放范围；任务模板负责把动作、对象、数量、归属和失败条件组织成完整要求。两条入口的内容生成方式不同，接取后的计数、期限、结算与评价口径相同。</p>
+<p>完整成本框架同时考虑对局、主动时间、日历、失败重试、净资源、地图竞争、队伍协调和期限风险。评价对两类自选线均检查任务组合承担的成本，输出完整／剩余要求和相对参考路线的差异，供策划判断内容是否适配。当前 Demo 的 WU 只覆盖已映射的目标动作量与压力标签，不能据此宣称已算出真实成本或完整难度。</p>
+<p>策划再结合带玩家标签的完成数据与真实体验，对照预测和实耗，调整目标量、内容权重、限制与点位分配。评价随样本积累不断校准，并逐步承担更多生成决策，形成可调控、可验证的内容循环。</p>
+<h3>4.2 多路径补足缺口，按整个赛季核算</h3>
+<p>阶段是推进检查点，赛季是整体成本核算单位。以阶段一主线已完、支线已结4星为例，玩家可以追加原有3星线，也可选择3星任务包或构筑3星详细自选线；三者均补足7星，但后续任务衔接、资源留存与完成日历可能不同。</p>
+<p>因此，比较要固定赛季起点、实际进度、已有资源、队伍条件和共同观察期，保留共同的主线、已结来源和后段目标，再切换预设、自选或混合路线。分别记录完整计划、当前剩余和已经发生的实耗，观察一次路线调整怎样影响后续推进。</p>
+<p>同局多任务只记一次对局与重叠时间；到期或重构保留此前花掉的成本；3×3留存衔接下一局资源，体验卡按实际游玩覆盖计算。由此比较的是获得同一赛季进度与体验的整体投入，而不只是某条任务线的节点数量。</p>
+</section>
+<section id="section5">
+<h2>五、前端需求</h2>
+<p>延续原任务界面的阶段导航、任务卡和详情层级。自选任务入口独立位于主线任务卡与预设支线列表之间，以完整横幅和醒目的边框强化识别；点击后在原页面上打开悬浮面板，保留阶段信息作为上下文。玩家在悬浮层完成选择与预览，关闭或返回原页时不改进度。页面职责与同包交互图证如下。</p>
+<div class="table-wrap"><table><thead><tr><th>页面</th><th>显示内容</th><th>操作与反馈</th></tr></thead><tbody><tr><td>玩家任务页</td><td>当前节点、目标、地图／模式、归属、期限与进度</td><td>从阶段一零进度开始，预设已接、自选为空；完成后引导领取／接取下一节点，达标解锁新阶段</td></tr><tr><td>自选入口悬浮层</td><td>当前阶段、三类任务包、各包星数／主题／地图／目标预览、详细自选入口</td><td>选择任务包后确认即建线；不选包可转入详细自选。悬浮层关闭返回原任务页，未确认不生成实例</td></tr><tr><td>详细自选悬浮流程</td><td>星数、1—3行为、1—2地图与整线预览</td><td>每偏好至少一个主题任务；局内主题覆盖所选地图，纯生产只生成局外生产／上交目标；确认接取，整线完成一次结星</td></tr><tr><td>策划评价</td><td>阶段、路线选择、星数缺口、完整／剩余与参考成本</td><td>自动加入主线，切换路线补缺口；查看和勾选不改玩家进度，失效实例取消原选择</td></tr><tr><td>策划配置</td><td>九包的合法星档与逐节点主题目标类型、数量、草稿目标量预检；详细自选地图／行为开关、难度倾向、草稿与应用状态</td><td>固定包独立配置，详细自选开关不使包消失；未应用草稿不参与评价，任一配置实际变更提示全部重置，跨标签同步状态</td></tr><tr><td>模拟时钟</td><td>当前模拟时间及到期结果</td><td>推进1小时、1天或下一条到期；完成、停留和关页不走时</td></tr></tbody></table></div>
+<div class="table-wrap"><table class="gallery"><thead><tr><th>主线下独立入口与任务页</th><th>任务包悬浮选择</th><th>完整任务包预览</th><th>详细自选悬浮流程</th></tr></thead><tbody><tr><td data-label="主线下独立入口与任务页"><a class="zoom" href="assets/01_阶段一任务页与自选入口.png"><img src="assets/01_阶段一任务页与自选入口.png" width="180" alt="阶段一默认任务页及主线下独立自选入口"></a></td><td data-label="任务包悬浮选择"><a class="zoom" href="assets/02_三类任务包选择.png"><img src="assets/02_三类任务包选择.png" width="180" alt="三类任务包与详细自选入口"></a></td><td data-label="完整任务包预览"><a class="zoom" href="assets/03_任务包完整目标预览.png"><img src="assets/03_任务包完整目标预览.png" width="180" alt="任务包完整节点预览"></a></td><td data-label="详细自选悬浮流程"><a class="zoom" href="assets/04_详细自选悬浮流程.png"><img src="assets/04_详细自选悬浮流程.png" width="180" alt="原有详细自选流程以悬浮态呈现"></a></td></tr></tbody></table></div>
+<p>四张图均取自同包 Demo v0.9.0。点击缩略图可放大查看；窄屏界面已同步核对。</p>
+<p>策划配置编辑另见<a href="assets/05_策划模式任务包配置.png">九包编辑与目标量预检图证</a>。预检只展示 D2 已量化目标动作量；高、中、低标签与真实难度的关系仍须体验和实耗校准。</p>
+<p>窄屏保留主要任务和操作，悬浮面板可纵向滚动而不遮断关闭与确认操作；独立入口紧跟主线，与阶段切换分离。整线结算、到期损失和阶段解锁分别反馈。</p>
+</section>
+<section id="section6">
+<h2>六、后端需求</h2>
+<h3>6.1 用可控配置组织任务的有机组合</h3>
+<p>笔者将详细自选的四组配置设计为任务组合的控制框架：模板描述动作与条件，投放策略决定内容分布，强度参数控制数量，组合校验约束合法性。固定任务包另设一层轻量预置配置，Demo 由 <a href="04_任务包配置.html">九包默认配置</a> 提供九条已编排任务线的默认规格；策划模式可编辑包的星数和逐节点目标类型、数量。确认包时复用现有实例、计数和结算逻辑，不增加一套任务推进状态机。</p>
+<div class="table-wrap"><table><thead><tr><th>配置组</th><th>调控空间</th></tr></thead><tbody><tr><td>目标模板</td><td>行为、对象、地图／模式、主体、累计窗口、容量、失败范围和文案</td></tr><tr><td>投放策略</td><td>阶段星档、地图／行为开关、主题权重、覆盖规则及点位池</td></tr><tr><td>强度参数</td><td>阶段基准、平级／递进系数、单位强度、评价权重与限制系数</td></tr><tr><td>组合校验</td><td>偏好主题、地图覆盖、对象容量、合法模式及协议版本</td></tr></tbody></table></div>
+<p>任务包配置包含：包 ID、阶段、主题、星数、展示顺序、允许地图集合、地图策略、逐节点完整目标规格及配置版本。当前演示的地图策略为 `any_of_allowed`：高压包的 `allowedMapIds` 是巴克什／航天基地，中、低压包是五张合法地图；任务目标在其中任一张地图可计数。九条包配置与详细自选的地图／行为开关分开管理；这些开关只控制详细自选可用输入，不自动隐藏或改写固定包。策划可在包的现有阶段星档内调整星数，并在所属主题的两类目标之间选择每个固定节点的类型与 1—99 的数量；节点数和地图范围保持固定。应用时校验高压包星数≥中压包≥低压包、每包两类主题目标均出现，再绑定新规格版本并重置全部表层进度。未经应用的草稿不改变玩家层或当前评价。</p>
+<p>策划模式实时展示三包草稿的已量化目标量 WU；若目标量次序与高／中／低标签不一致，给出提示而不自动拦截。WU 未包含战斗强度、失败损失等真实压力，不能仅凭该次序判定包的实际难度。</p>
+<p>详细自选默认开放五图八行为，全部开放合法组合均须生成。每项偏好至少一个主题节点，纯生产免地图义务，混选由局内主题承接地图；选择两张地图时整线必须覆盖两张，每图唯一标杆固定1次。原有任务库与生成模板分别保存，实例绑定来源类型（固定包／详细自选）、配置版本、节点规格、期限及结算来源。</p>
+<h3>6.2 先验证模型，再逐步接管生成</h3>
+<p>生成与强度计算应结合真实玩家数据和体验样本验证。当前原型通过可配置参数及基础规划量呈现流程；笔者的推进思路是先让模型提供参考，再提高预测置信度，逐步接管内容分配：</p>
+<div class="table-wrap"><table><thead><tr><th>步骤</th><th>依据与产出</th></tr></thead><tbody><tr><td>标记样本</td><td>记录能力／经验、偏好、地图熟悉度、组队、初始资源和可用时间，关联任务版本、对局及资源流水</td></tr><tr><td>对照验证</td><td>按标签对比预测与实际完成成本，结合体验访谈观察卡点、失败和放弃；保留未完成样本</td></tr><tr><td>校准模型</td><td>用留出样本检查预测误差、区间命中及样本覆盖，调整数量、类型权重和条件系数</td></tr><tr><td>受控生成</td><td>在验证覆盖较好的任务类型与人群范围内参与内容分配，策划保留硬规则、参数审批与回退能力</td></tr></tbody></table></div>
+<p>详细自选的单节点目标强度：<strong>tᵢ＝阶段基准bₛ×（所选星数／本阶段最高星档）×节点系数fᵢ。</strong> 平级fᵢ＝1，递进系数线性变化，按单位强度向上取整；递进参考此前配置强度高点，允许数量平台。固定任务包的目标量与条件由包配置给定，不在玩家确认时重新按此式生成；包仍进入同一评价模型，供策划对照压力层级与同阶段预设线。固定包的普通本人成功撤离通过 Demo 评价适配按 <strong>1.5 WU／次</strong>计入，与原 D2-R1 动作单位一致；CFG-0.3.0 锁版内容不因任务包而改写。WU 是目标动作量参考，不是完整真实难度。</p>
+<p>详细自选生成依次校验输入、落实主题与地图、组合节点、分配目标量并输出规格；同一生效配置与规范化输入保持内容稳定。固定包只读取已经生效的完整规格，校验后实例化。两种来源的评价数据、配置版本和调参记录关联保存，便于追踪变化来自包内容、生成参数还是玩家选择。</p>
+<h3>6.3 推进、结算与配置事务</h3>
+<div class="table-wrap"><table><thead><tr><th>处理</th><th>实现要求</th></tr></thead><tbody><tr><td>当前节点</td><td>服务端只计已接任务，核地图／模式、对象、主体和窗口；固定包按 `allowedMapIds` 校验目标所在地图及 `any_of_allowed` 策略，详细自选按必覆盖的地图义务校验。仅NPC击败与活动可共享，其余本人。完成锁定，失败按自身窗口处理，下一节点回局外领取／接取</td></tr><tr><td>自选入口</td><td>固定包确认记录 packageId 与版本，详细自选确认记录规范化输入与生成版本；两者均创建一条正式自选线，关闭面板或仅预览不创建实例</td></tr><tr><td>并行与去重</td><td>跨阶段在途线可并行，合法事件分别核验各实例；实例内去重，同线后续节点不回放本局事件</td></tr><tr><td>整线结算</td><td>完成全部节点后一次计入所属阶段，重复上报不重复加星；计划足星与实际已结星分别记录</td></tr><tr><td>到期与重构</td><td>生成后72模拟小时到期，清本线未结算进度，含已完成但未结线节点；保留已结来源、其他实例及赛季实耗</td></tr><tr><td>配置应用</td><td>校验通过后切换生效版本，原子重置原型阶段、星账、实例与时钟；失败保留原版本和原账</td></tr></tbody></table></div>
+<p>正式服务须读取可信事件与资源流水，并以任务实例绑定的 `allowedMapIds` 等条件校验地图、本人放置、带出和提交。本地 Demo 的“完成”按钮仅用于预览进度，不核验真实对局事件，也不能证明服务端的地图限制已经落地。草稿与生效配置隔离，实例失效或替换后原评价选择同步失效。</p>
+<h3>6.4 赛季统一核算与路线比较</h3>
+<p>在阶段评价之上设置赛季汇总层，汇集共同主线、独立前置、奖励覆盖和一份实际成本账，输出完整计划、当前剩余、累计实耗与目标达成情况。两方使用同一观察期及达标后的统计截止规则，保留未完成、到期和放弃样本。参考保留全部已结预设／自选来源，仅用预设线补未来缺口；各阶段星账继续独立。</p>
+<p>基础规划量按节点基础量、目标数量与类型／条件权重计算；完整求和，剩余扣有效完成节点，未完成节点内部部分量暂不折算。比较输出所选−参考的差值与所选÷参考的比值，参考为0时比值留空，不足星先报缺口。</p>
+<p>完整成本按N对局、T主动时间、L日历、F失败重试、G净资源、M地图竞争、Q协作、H期限风险记录。跨线跨阶段按唯一对局去重、主动时段取并集；日历按等待与执行的关键路径计算，避免直接相加阶段时长和风险。</p>
+<p>材料、产物、提交、战备、3×3留存及下一局起始资产在同一净流水中衔接；体验卡只计有效时段覆盖的实际游玩时间。到期、放弃和重构不抹掉此前实耗。比较按同标签、同起点逐条求差，再汇总分布；期限按同一时点的剩余日历与剩余期限评价，无法估计的维度留空。</p>
+<h3>6.5 目的达成与迭代重点</h3>
+<div class="table-wrap"><table><thead><tr><th>设计目的</th><th>当前落点</th><th>后续检验</th></tr></thead><tbody><tr><td>增加路线</td><td>自选补足原阶段门槛，原型可切换玩家与策划视角</td><td>选择、达标、放弃与重新开局</td></tr><tr><td>降低选择负担</td><td>每阶段三类固定包可快速确认，详细自选仍可按精确偏好构筑</td><td>包选择率、从入口到确认的时长、转入详细自选及退出比例</td></tr><tr><td>适配偏好</td><td>主题与地图义务进入生成规则</td><td>不同标签玩家的完成成本与体验</td></tr><tr><td>调控内容</td><td>九条包配置与详细自选四组配置均可追版；参考评价使用同一口径</td><td>样本覆盖、预测误差、内容稳定性及不同包的实际压力差</td></tr><tr><td>缓解集中卡点</td><td>玩家可改选支线类型与详细地图；真实点位避让尚未接入</td><td>同阶段热点到访、失败重试、任务点争夺与体验反馈</td></tr><tr><td>改善赛季投入</td><td>整体核算框架衔接任务、资源和奖励覆盖</td><td>3×3可达节奏、失败后资源、后续参与</td></tr></tbody></table></div>
+<p>后续重点是用真实样本校准评价，并将地点占位绑定到协议、容量和联合可达合格的多个点位池，减少新增支线的集中叠加，保留主线必经点。同阶段在途上限、主动重构损失、超额星处理与自选奖励继续作为参数议题。</p>
+<p>相关材料：<a href="03_事实与来源.html#structure">任务结构</a> · <a href="03_事实与来源.html#sentiment">舆情与官方变更</a> · <a href="03_事实与来源.html#model">配置与计算参考</a></p>
+</section></article>
+<dialog id="image-zoom" aria-labelledby="zoom-label"><div class="zoom-bar"><span id="zoom-label"></span><a id="original" target="_blank" rel="noopener">查看原尺寸</a><button type="button" aria-label="关闭图片预览">关闭</button></div><div class="zoom-scroll"><img alt=""></div></dialog>
+<script>
+const modal=document.querySelector('#image-zoom');
+const picture=modal.querySelector('img');
+const label=modal.querySelector('#zoom-label');
+const original=modal.querySelector('#original');
+let trigger=null;
+document.querySelectorAll('article a.zoom').forEach(link=>{
+  link.addEventListener('click',event=>{
+    if(typeof modal.showModal!=='function')return;
+    event.preventDefault(); trigger=link;
+    picture.src=link.href; picture.alt=link.querySelector('img').alt;
+    label.textContent=picture.alt; original.href=link.href;
+    modal.showModal(); modal.querySelector('.zoom-scroll').scrollTop=0;
+  });
+});
+modal.querySelector('button').addEventListener('click',()=>modal.close());
+modal.addEventListener('click',event=>{
+  const box=modal.getBoundingClientRect();
+  if(event.target===modal&&(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom))modal.close();
+});
+modal.addEventListener('close',()=>{if(trigger)trigger.focus({preventScroll:true});});
+</script></body></html>

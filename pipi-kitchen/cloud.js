@@ -41,7 +41,7 @@ async function refreshSharedMenu({ force = false } = {}) {
     const dishes = await fetchMenu();
     if (generation !== refreshGeneration) return;
     sharedMenu = dishes;
-    for (const id of cart.keys()) if (!sharedMenu.some(dish => dish.id === id)) cart.delete(id);
+    for (const id of cart.keys()) if (!getDish(id)) removeFromCart(id);
     lastSync = Date.now();
     renderMenu();
     renderBasket();
@@ -73,6 +73,17 @@ async function writeDish(dish, fields, imageData) {
   } else {
     checkCloud(await cloud.from("kitchen_dishes").insert({ ...record, sort_order: Date.now() }));
   }
+}
+
+async function deleteDish(dish) {
+  if (!kitchenUser) throw new Error("请先登录后再删除。");
+  const deleted = checkCloud(await cloud.from("kitchen_dishes").delete()
+    .eq("id", dish.id).eq("updated_at", dish.updatedAt).select("id").maybeSingle());
+  if (!deleted) throw new Error("这道菜已更新或删除，请刷新菜单后再试。");
+  sharedMenu = sharedMenu.filter(item => item.id !== dish.id);
+  removeFromCart(dish.id);
+  renderMenu();
+  renderBasket();
 }
 
 function lockKitchen() {

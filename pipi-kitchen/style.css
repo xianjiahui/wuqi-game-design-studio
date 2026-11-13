@@ -113,6 +113,9 @@ dialog::backdrop { background: #3522228c; }
 .field input, .field textarea, .field select { width: 100%; min-width: 0; background: #fffaf7; border: 1px solid var(--line); border-radius: 8px; padding: 8px; font-size: 16px; font-weight: 400; }
 .field textarea { resize: vertical; min-height: 64px; }
 .wide { width: 100%; margin-top: 14px; }
+.delete-dish { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.delete-trigger { color: var(--berry); }
+.delete-dish .row { margin-top: 8px; }
 .poster-preview { width: min(100%, 370px); margin: 13px auto; border: 1px solid var(--line); border-radius: 9px; }
 .history-row { display: flex; gap: 8px; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px dashed var(--line); }
 .history-row strong { display: block; font-size: 14px; overflow-wrap: anywhere; }

@@ -185,15 +185,59 @@ function openEditor(dish) {
       <p class="help">${onlineKitchen ? "保存后，对方刷新菜单即可看到。" : "菜谱改动保存在当前浏览器。"}</p>
       <p class="help" id="editStatus" aria-live="polite"></p>
       <button class="button wide" type="submit">保存菜谱</button>
+      ${onlineKitchen && dish ? `<div class="delete-dish">
+        <button class="quiet delete-trigger" id="showDeleteDish" type="button" aria-expanded="false" aria-controls="deleteDishPrompt">删除菜品</button>
+        <div id="deleteDishPrompt" hidden>
+          <p class="help">确定从共享菜单删除「${html(dish.name)}」？删除后无法在网页恢复，已有订单记录会保留。</p>
+          <div class="row">
+            <button class="quiet" id="cancelDeleteDish" type="button">取消</button>
+            <button class="button" id="confirmDeleteDish" type="button">确认删除</button>
+          </div>
+          <p class="help" id="deleteDishStatus" role="status"></p>
+        </div>
+      </div>` : ""}
     </form>`, "edit");
-  $("#editForm").onsubmit = async event => {
+  const form = $("#editForm");
+  const submit = form.querySelector("button[type=submit]");
+  const deleteTrigger = $("#showDeleteDish");
+  if (deleteTrigger) {
+    const prompt = $("#deleteDishPrompt");
+    const cancel = $("#cancelDeleteDish");
+    const confirm = $("#confirmDeleteDish");
+    const status = $("#deleteDishStatus");
+    const setConfirmation = visible => {
+      prompt.hidden = !visible;
+      deleteTrigger.hidden = visible;
+      deleteTrigger.setAttribute("aria-expanded", String(visible));
+      submit.disabled = visible;
+      status.textContent = "";
+      (visible ? cancel : deleteTrigger).focus();
+    };
+    deleteTrigger.onclick = () => setConfirmation(true);
+    cancel.onclick = () => setConfirmation(false);
+    confirm.onclick = async () => {
+      confirm.disabled = cancel.disabled = true;
+      status.textContent = "正在删除…";
+      try {
+        await deleteDish(dish);
+        if (dialog.open && form.isConnected) dialog.close();
+        notify("菜品已从共享菜单删除");
+        refreshSharedMenu({ force: true }).catch(() => {});
+      } catch (error) {
+        status.textContent = error instanceof Error && !error.code ? error.message : "删除失败，请稍后重试。";
+      } finally {
+        confirm.disabled = cancel.disabled = false;
+      }
+    };
+  }
+  form.onsubmit = async event => {
     event.preventDefault();
-    const form = event.currentTarget;
+    if (submit.disabled) return;
     const input = new FormData(form);
     const name = input.get("name").trim();
     if (!name) return;
-    const submit = form.querySelector("button[type=submit]");
     submit.disabled = true;
+    if (deleteTrigger) deleteTrigger.disabled = true;
     try {
       const selected = input.get("photo");
       const photo = selected.size ? await compressPhoto(selected) : undefined;
@@ -234,8 +278,16 @@ function openEditor(dish) {
       if (form.isConnected) $("#editStatus").textContent = error.message || "照片读取失败";
     } finally {
       submit.disabled = false;
+      if (deleteTrigger) deleteTrigger.disabled = false;
     }
   };
+}
+
+function removeFromCart(id) {
+  if (!cart.delete(id) || !dialog.open || dialog.dataset.view !== "cart") return;
+  document.querySelector(`[data-order-row="${id}"]`)?.remove();
+  if (!cart.size) openCart();
+  else $("#orderStatus").textContent = "已移除菜单中下架的菜品。";
 }
 
 function openCart() {
@@ -295,6 +347,11 @@ function openCart() {
 }
 
 function changeQuantity(id, delta) {
+  const dish = getDish(id);
+  if (!dish) {
+    notify("这道菜已从菜单移除");
+    return;
+  }
   const previous = cart.get(id) ?? 0;
   if (!previous && delta > 0 && cart.size >= 80) {
     notify("一张点菜单最多放 80 道菜");
@@ -303,7 +360,6 @@ function changeQuantity(id, delta) {
   const quantity = Math.max(0, Math.min(99, previous + delta));
   if (quantity) cart.set(id, quantity);
   else cart.delete(id);
-  const dish = getDish(id);
   const card = document.querySelector(`[data-card="${id}"]`);
   if (card) card.querySelector(".stepper").outerHTML = quantityControls(dish);
   if (dialog.open && dialog.dataset.view === "cart") {
@@ -539,8 +595,14 @@ document.body.addEventListener("click", async event => {
   }
   if (plus) changeQuantity(plus, 1);
   if (minus) changeQuantity(minus, -1);
-  if (detail) openDetail(getDish(detail));
-  if (edit) openEditor(getDish(edit));
+  if (detail || edit) {
+    const dish = getDish(detail || edit);
+    if (!dish) {
+      dialog.close();
+      notify("这道菜已从菜单移除");
+    } else if (detail) openDetail(dish);
+    else openEditor(dish);
+  }
   if (detailAdd) {
     changeQuantity(detailAdd, 1);
     dialog.close();
